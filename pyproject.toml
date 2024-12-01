@@ -1,0 +1,7 @@
+[tool.black]
+line-length = 88
+skip-string-normalization = true
+
+[tool.isort]
+profile = "black"  # Ensures isort follows Black's import style
+line_length = 88   # Aligns with Black's line length
