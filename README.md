@@ -2,6 +2,8 @@
 
 Puzzles found in [Advent of Code](https://adventofcode.com/2024).
 
+[![AoC Test Run](https://github.com/valies/AoC2024/actions/workflows/tests.yml/badge.svg)](https://github.com/valies/AoC2024/actions/workflows/tests.yml)
+
 ## Requirements
 
 This project was made with:
