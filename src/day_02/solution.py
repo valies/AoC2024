@@ -1,7 +1,9 @@
 from utils.file_reader import read_file_as_ints
+from utils.printer import timing_decorator
 
 
-def part_1(file):
+@timing_decorator
+def day_02_part_1(file):
     data = read_file_as_ints(file, " ")
     safe_reports = 0
     for report in data:
@@ -9,7 +11,8 @@ def part_1(file):
     return safe_reports
 
 
-def part_2(file):
+@timing_decorator
+def day_02_part_2(file):
     data = read_file_as_ints(file, " ")
     safe_reports = 0
     for report in data:

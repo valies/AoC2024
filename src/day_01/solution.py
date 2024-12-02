@@ -1,7 +1,9 @@
 from utils.file_reader import read_file_as_strings
+from utils.printer import timing_decorator
 
 
-def part_1(file):
+@timing_decorator
+def day_01_part_1(file):
     data = read_file_as_strings(file)
     left, right = zip(*[map(int, string.split()) for string in data])
     result = sum(
@@ -10,7 +12,8 @@ def part_1(file):
     return result
 
 
-def part_2(file):
+@timing_decorator
+def day_01_part_2(file):
     data = read_file_as_strings(file)
     left, right = zip(*[map(int, string.split()) for string in data])
     result = sum(right.count(number) * number for number in left)
