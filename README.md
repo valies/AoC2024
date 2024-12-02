@@ -12,6 +12,9 @@ This project was made with:
 - pipenv 2024.4.0
 - PyCharm 2024.1.2
 
+> [!NOTE]  
+> To run main.py, you will need to retrieve your input files from the Advent of Code website.
+
 ### Use pyenv
 In case you need to maintain multiple Python versions.
 
