@@ -93,3 +93,8 @@ python main.py
 ```zsh
 python -m unittest
 ```
+
+### Run tests with pytest
+```zsh
+pytest
+```
