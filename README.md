@@ -13,7 +13,7 @@ This project was made with:
 - PyCharm 2024.1.2
 
 > [!NOTE]  
-> To run main.py, you will need to retrieve your input files from the Advent of Code website.
+> Input files can be retrieved from the Advent of Code website.
 
 ### Use pyenv
 In case you need to maintain multiple Python versions.
@@ -88,6 +88,9 @@ isort .
 ```
 
 ### Get results
+> [!NOTE]
+> You need to retrieve your input files from the AoC website and put them in a folder "input" with the names as mentioned in main.py.
+
 ```zsh
 python main.py
 ```
