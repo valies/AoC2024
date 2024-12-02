@@ -8,6 +8,4 @@ if __name__ == '__main__':
     pretty_print("day 01 part 01", day_01_part_1("./src/day_01/input.txt"))
     pretty_print("day 01 part 02", day_01_part_2("./src/day_01/input.txt"))
     pretty_print("day 02 part 01", day_02_part_1("./src/day_02/input.txt"))
-    pretty_print(
-        "day 02 part 02", day_02_part_2("./src/day_02/input.txt")
-    )  # 359 too low 370 too low
+    pretty_print("day 02 part 02", day_02_part_2("./src/day_02/input.txt"))
