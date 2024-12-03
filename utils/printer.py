@@ -2,7 +2,7 @@ import time
 
 
 def pretty_print(day, result, duration):
-    print(f"{str(day)}: {str(result)} \u2b50 ({duration} ms)")
+    print(f"{str(day)} \u2b50 ({round(duration, 5)} ms) --> {str(result)}")
 
 
 def timing_decorator(func):
