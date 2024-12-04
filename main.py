@@ -11,4 +11,4 @@ if __name__ == '__main__':
     day_03_part_1("input/day_03_input.txt")
     day_03_part_2("input/day_03_input.txt")
     day_04_part_1("input/day_04_input.txt")
-    day_04_part_2("input/day_04_input.txt")  # 1538 too low 1784 too low
+    day_04_part_2("input/day_04_input.txt")
