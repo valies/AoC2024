@@ -58,7 +58,6 @@ def find_diagonal_xmas(matrix, start_char, find_chars):
 def find_diagonal_cross_mas(matrix):
     directions = [[(1, 1), (-1, -1)], [(1, -1), (-1, 1)]]
     counter = 0
-    a_counter = 0
     for i in range(len(matrix)):
         line = matrix[i]
         for j in range(len(line)):
@@ -66,7 +65,6 @@ def find_diagonal_cross_mas(matrix):
             if (
                 a_char == "A" and 0 < i < len(matrix) - 1 and 0 < j < len(matrix[0]) - 1
             ):  # A can't be in first or last row/col when forming cross MAS so skip these rows and cols
-                a_counter += 1
                 cross_legs = 0
                 for direction in directions:
                     general_r, general_c = direction[0]
