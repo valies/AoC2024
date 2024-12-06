@@ -1,9 +1,9 @@
-from src.day_01.solution import day_01_part_1, day_01_part_2
-from src.day_02.solution import day_02_part_1, day_02_part_2
-from src.day_03.solution import day_03_part_1, day_03_part_2
-from src.day_04.solution import day_04_part_1, day_04_part_2
-from src.day_05.solution import day_05_part_1, day_05_part_2
-from src.day_06.solution import day_06_part_1
+from src.solution_day_01 import day_01_part_1, day_01_part_2
+from src.solution_day_02 import day_02_part_1, day_02_part_2
+from src.solution_day_03 import day_03_part_1, day_03_part_2
+from src.solution_day_04 import day_04_part_1, day_04_part_2
+from src.solution_day_05 import day_05_part_1, day_05_part_2
+from src.solution_day_06 import day_06_part_1
 
 if __name__ == '__main__':
     day_01_part_1("input/day_01_input.txt")  # 2430334

@@ -1,7 +1,7 @@
 import os
 import unittest
 
-from src.day_01.solution import day_01_part_1, day_01_part_2
+from src.solution_day_01 import day_01_part_1, day_01_part_2
 
 
 class MyTestCases(unittest.TestCase):
