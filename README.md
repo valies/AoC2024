@@ -7,8 +7,8 @@ Puzzles found in [Advent of Code](https://adventofcode.com/2024).
 ## Requirements
 
 This project was made with:
-- Python 3.13.0
-- pyenv 2.4.19
+- Python 3.11.11
+- pyenv 2.4.21
 - pipenv 2024.4.0
 - PyCharm 2024.1.2
 
