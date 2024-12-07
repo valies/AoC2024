@@ -111,10 +111,10 @@ def find_start_position(data, start_char):
         for j, col in enumerate(row):
             if col == start_char:
                 start_position = (i, j)
-                break
+                return start_position
         if start_position != (0, 0):
-            break
-    return start_position
+            return start_position
+    return None
 
 
 def traverse_and_place_obstructions(data):
@@ -165,9 +165,3 @@ def find_o(data):
                 return i, j
     return None
 
-
-def place_obstructions(data, obstruction_side):
-    obstruction_data = [line[:] for line in data]
-    if obstruction_data[obstruction_side[0]][obstruction_side[1]] != "#":
-        obstruction_data[obstruction_side[0]][obstruction_side[1]] = "O"
-    return obstruction_data
