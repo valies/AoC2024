@@ -67,7 +67,9 @@ def traverse(data, start_position, direction):
 
     data[start_position[0]][start_position[1]] = "X"
 
-    while 0 < start_position[0] < rows - 1 and 0 < start_position[1] < cols - 1:  # quit when leaving map
+    while (
+        0 < start_position[0] < rows - 1 and 0 < start_position[1] < cols - 1
+    ):  # quit when leaving map
         dx, dy = direction_map[direction]
         new_position = (start_position[0] + dx, start_position[1] + dy)
 
@@ -142,7 +144,9 @@ def traverse_and_keep_infinite_loop(data, start_position, direction):
 
     position_o = find_o(data)
 
-    while 0 < start_position[0] < rows - 1 and 0 < start_position[1] < cols - 1:  # quit when leaving map
+    while (
+        0 < start_position[0] < rows - 1 and 0 < start_position[1] < cols - 1
+    ):  # quit when leaving map
         dx, dy = direction_map[direction]
         new_position = (start_position[0] + dx, start_position[1] + dy)
 
@@ -164,4 +168,3 @@ def find_o(data):
             if value == "O":
                 return i, j
     return None
-

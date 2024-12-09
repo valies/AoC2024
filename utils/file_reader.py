@@ -20,3 +20,17 @@ def read_file_as_char_matrix(file):
         for line in my_file:
             data.append(list(line.rstrip()))
     return data
+
+
+def read_file_as_list_of_dictionaries(file):
+    data = []
+    with open(file) as my_file:
+        for line in my_file:
+            line = line.rstrip().replace(":", "")
+            data.append(
+                {
+                    "result": int(line.split()[0]),
+                    "numbers": list(map(int, list(line.split()[1:]))),
+                }
+            )
+    return data
