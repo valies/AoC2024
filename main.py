@@ -6,8 +6,9 @@ from src.solution_day_05 import day_05_part_1, day_05_part_2
 from src.solution_day_06 import day_06_part_1  # , day_06_part_2
 from src.solution_day_07 import day_07_part_1  # , day_07_part_2
 from src.solution_day_08 import day_08_part_1, day_08_part_2
-from src.solution_day_09 import day_09_part_1, day_09_part_2
+from src.solution_day_09 import day_09_part_1  # , day_09_part_2
 from src.solution_day_10 import day_10_part_1, day_10_part_2
+from src.solution_day_11 import day_11_part_1  # , day_11_part_2
 
 if __name__ == '__main__':
     day_01_part_1("input/day_01_input.txt")  # 2430334
@@ -27,8 +28,8 @@ if __name__ == '__main__':
     day_08_part_1("input/day_08_input.txt")  # 214
     day_08_part_2("input/day_08_input.txt")  # 809
     day_09_part_1("input/day_09_input.txt")  # 6390180901651
-    day_09_part_2(
-        "input/day_09_input.txt"
-    )  # 6434023105560 too high :( - takes quite long: 22 seconds
+    # day_09_part_2("input/day_09_input.txt")  # 6434023105560 too high :( - takes quite long: 22 seconds
     day_10_part_1("input/day_10_input.txt")  # 552
     day_10_part_2("input/day_10_input.txt")  # 1225
+    day_11_part_1("input/day_11_input.txt")  # 185205
+    # day_11_part_2("input/day_11_input.txt")
