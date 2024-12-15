@@ -102,18 +102,23 @@ def move_files_v2(files):
 
     while True:
         file = files[last_number_index]
-        free_space_file = files[first_free_space_index]
 
         if file == files[0]:
             break
 
-        if "." not in free_space_file:
-            first_free_space_index += 1
-            continue
-
-        if "." in file or first_free_space_index >= last_number_index:
+        if (
+            "." in file
+            or first_free_space_index >= last_number_index
+            or first_free_space_index > len(files)
+        ):
             last_number_index -= 1
             first_free_space_index = 0
+            continue
+
+        free_space_file = files[first_free_space_index]
+
+        if "." not in free_space_file:
+            first_free_space_index += 1
             continue
 
         if len(file) > len(free_space_file):

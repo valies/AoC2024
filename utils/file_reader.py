@@ -27,6 +27,14 @@ def read_file_as_char_matrix(file):
     return data
 
 
+def read_file_as_int_matrix(file):
+    data = []
+    with open(file) as my_file:
+        for line in my_file:
+            data.append(list(map(int, line.rstrip())))
+    return data
+
+
 def read_file_as_list_of_dictionaries(file):
     data = []
     with open(file) as my_file:
