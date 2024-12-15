@@ -6,6 +6,11 @@ def read_file_as_strings(file):
     return data
 
 
+def read_file_as_string(file):
+    with open(file) as my_file:
+        return my_file.read().rstrip()
+
+
 def read_file_as_ints(file, separator):
     data = []
     with open(file) as my_file:
