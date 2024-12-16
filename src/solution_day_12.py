@@ -39,15 +39,9 @@ def day_12_part_1(file):
             for border in potential_borders:
                 if border not in region_locations:
                     actual_borders.append(border)
-        print("")
-        print(region_id)
-        print(region_locations)
-        print(actual_borders)
         perimeter = len(actual_borders)
         area = len(region_locations)
         result += area * perimeter
-        print(area, perimeter)
-        print(area * perimeter)
 
     return result
 
