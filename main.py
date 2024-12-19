@@ -29,7 +29,7 @@ if __name__ == '__main__':
     day_08_part_1("input/day_08_input.txt")  # 214
     day_08_part_2("input/day_08_input.txt")  # 809
     day_09_part_1("input/day_09_input.txt")  # 6390180901651
-    # day_09_part_2("input/day_09_input.txt")  # 6434023105560 too high :( - takes quite long: 22 seconds
+    # day_09_part_2("input/day_09_input.txt")  # 6412390114238 - takes quite long: 20 seconds
     day_10_part_1("input/day_10_input.txt")  # 552
     day_10_part_2("input/day_10_input.txt")  # 1225
     day_11_part_1("input/day_11_input.txt", 25)  # 185205

@@ -12,9 +12,8 @@ def day_09_part_1(file):
 
     checksum = 0
     for i, file in enumerate(moved_files):
-        if file == ".":
-            break
-        checksum += i * int(file)
+        if file != ".":
+            checksum += i * int(file)
     return checksum
 
 
@@ -138,8 +137,7 @@ def move_files_v2(files):
                 )
 
             if len(free_space_file) >= len(file):
-                for j in range(len(free_space_file) - len(file)):
-                    files = split_and_move(files, first_free_space_index, len(file) + j)
+                files = split_and_move(files, first_free_space_index, len(file))
                 first_free_space_index = 0
 
             while last_number_index >= 0 and files[last_number_index].count(".") > 0:
