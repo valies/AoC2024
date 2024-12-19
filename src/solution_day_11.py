@@ -3,49 +3,48 @@ from utils.printer import timing_decorator
 
 
 @timing_decorator
-def day_11_part_1(file):
+def day_11_part_1(file, runs):
     data = read_file_as_ints(file, " ")[0]
     cache = {}
-    for i in range(25):
-        data, cache = transform(data, cache)
-
-    return len(data)
+    count = transform(data, cache, runs)
+    return count
 
 
-@timing_decorator
-def day_11_part_2(file):
+def day_11_part_2(file, runs):
     data = read_file_as_ints(file, " ")[0]
     cache = {}
-    for i in range(75):
-        data, cache = transform(data, cache)
-
-    return len(data)
+    count = transform(data, cache, runs)
+    return count
 
 
-def transform_stone(stone, cache):
-    if stone in cache:
-        return cache[stone]
+def transform_stone(stone, cache, runs):
+    if runs == 0:
+        return 1
     if stone == 0:
-        result = (1,)
+        result = transform_stone(1, cache, runs - 1)
     else:
-        stone_str = str(stone)
-        if len(str(stone)) % 2 == 0:
-            split_index = len(stone_str) // 2
-            left = int(stone_str[:split_index])
-            right = int(stone_str[split_index:])
-            result = (left, right)
+        length = len(str(stone))
+        if length % 2 == 0:
+            split_index = length // 2
+            divisor = 10**split_index
+            left = stone // divisor
+            right = stone % divisor
+            result = transform_stone(left, cache, runs - 1) + transform_stone(
+                right, cache, runs - 1
+            )
         else:
-            result = (stone * 2024,)
-    cache[stone] = result
+            if (stone, runs) in cache:
+                return cache[stone, runs]
+            result = transform_stone(stone * 2024, cache, runs - 1)
+            if (stone, runs) not in cache:
+                cache[stone, runs] = result
     return result
 
 
-def transform(data, cache):
-    transformed_data = []
-    bump = 0
+def transform(data, cache, runs):
+    count = 0
     for i in range(len(data)):
         stone = data[i]
-        transformed_stone_data = transform_stone(stone, cache)
-        transformed_data.extend(transformed_stone_data)
-        bump += len(transformed_stone_data) - 1
-    return transformed_data, cache
+        count += transform_stone(stone, cache, runs)
+
+    return count
