@@ -35,13 +35,60 @@ def day_12_part_1(file):
     for region_id, region_locations in regions.items():
         actual_borders = []
         for region_location in region_locations:
-            potential_borders = get_borders(region_location)
+            potential_borders = get_adjacent_borders(region_location)
             for border in potential_borders:
                 if border not in region_locations:
                     actual_borders.append(border)
         perimeter = len(actual_borders)
         area = len(region_locations)
         result += area * perimeter
+
+    return result
+
+
+@timing_decorator
+def day_12_part_2(file):
+    data = read_file_as_char_matrix(file)
+
+    chars = {}
+    regions = {}
+    visited_locations = []
+
+    for i in range(len(data)):
+        line = data[i]
+        for j in range(len(line)):
+            this_char = data[i][j]
+
+            if (i, j) in visited_locations:
+                continue
+
+            visited_locations.append((i, j))
+
+            if this_char in chars:
+                chars[this_char] += 1
+            else:
+                chars[this_char] = 1
+            region_id = this_char + "_" + str(chars[this_char])
+            regions[region_id], visited_locations_for_region = build_region(
+                [(i, j)], data, (i, j), this_char, [(i, j)]
+            )
+            visited_locations.extend(visited_locations_for_region)
+
+    result = 0
+
+    for region_id, region_locations in regions.items():
+        actual_borders = []
+        for region_location in region_locations:
+            potential_borders = get_adjacent_borders(region_location)
+            for border in potential_borders:
+                if border not in region_locations:
+                    actual_borders.append(border)
+
+        corners = 0
+        for region_location in region_locations:
+            corners += get_corner_count(data, region_location)
+        area = len(region_locations)
+        result += area * corners
 
     return result
 
@@ -87,7 +134,7 @@ def get_surrounding_locations_for_char(data, start_location, this_char):
         new_j = j + y
         if 0 <= new_i < len(data) and 0 <= new_j < len(data[0]):
             if data[new_i][new_j] == this_char:
-                borders = get_borders((new_i, new_j))
+                borders = get_adjacent_borders((new_i, new_j))
                 for border in borders:
                     if (
                         border in hor_ver_surrounding_locations
@@ -102,7 +149,90 @@ def get_surrounding_locations_for_char(data, start_location, this_char):
         return hor_ver_surrounding_locations
 
 
-def get_borders(location):
+def get_corner_count(data, location):
+    i, j = location
+    value = data[i][j]
+    neighbors = []  # neighbor means adjacent, but different region
+    partners = []  # partner means adjacent, same region
+    corners = 0
+
+    # Check upward neighbor
+    if (i > 0 and data[i - 1][j] != value) or i <= 0:
+        neighbors.append("up")
+    else:
+        partners.append("up")
+
+    # Check downward neighbor
+    if (i < len(data) - 1 and data[i + 1][j] != value) or i >= len(data) - 1:
+        neighbors.append("down")
+    else:
+        partners.append("down")
+
+    # Check left neighbor
+    if (j > 0 and data[i][j - 1] != value) or j <= 0:
+        neighbors.append("left")
+    else:
+        partners.append("left")
+
+    # Check right neighbor
+    if (j < len(data[0]) - 1 and data[i][j + 1] != value) or j >= len(data[0]) - 1:
+        neighbors.append("right")
+    else:
+        partners.append("right")
+
+    # Check diagonal left up neighbor
+    if i > 0 and j > 0 and data[i - 1][j - 1] != value:
+        neighbors.append("left-up")
+
+    # Check diagonal up right neighbor
+    if i > 0 and j < len(data[0]) - 1 and data[i - 1][j + 1] != value:
+        neighbors.append("up-right")
+
+    # Check diagonal right down neighbor
+    if i < len(data) - 1 and j < len(data[0]) - 1 and data[i + 1][j + 1] != value:
+        neighbors.append("right-down")
+
+    # Check diagonal down left neighbor
+    if i < len(data) - 1 and j > 0 and data[i + 1][j - 1] != value:
+        neighbors.append("down-left")
+
+    # Check neighbor combinations to find corners
+    if "left" in neighbors and "up" in neighbors:
+        corners += 1
+
+    if "left" in partners and "up" in partners:
+        # Check inner corner by validating inner diagonal
+        if "left-up" in neighbors:
+            corners += 1
+
+    if "up" in neighbors and "right" in neighbors:
+        corners += 1
+
+    if "up" in partners and "right" in partners:
+        # Check inner corner by validating inner diagonal
+        if "up-right" in neighbors:
+            corners += 1
+
+    if "right" in neighbors and "down" in neighbors:
+        corners += 1
+
+    if "right" in partners and "down" in partners:
+        # Check inner corner by validating inner diagonal
+        if "right-down" in neighbors:
+            corners += 1
+
+    if "down" in neighbors and "left" in neighbors:
+        corners += 1
+
+    if "down" in partners and "left" in partners:
+        # Check inner corner by validating inner diagonal
+        if "down-left" in neighbors:
+            corners += 1
+
+    return corners
+
+
+def get_adjacent_borders(location):
     borders = []
     left_border = get_left_border(location)
     if left_border:
