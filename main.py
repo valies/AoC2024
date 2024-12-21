@@ -10,6 +10,7 @@ from src.solution_day_09 import day_09_part_1  # , day_09_part_2
 from src.solution_day_10 import day_10_part_1, day_10_part_2
 from src.solution_day_11 import day_11_part_1, day_11_part_2
 from src.solution_day_12 import day_12_part_1, day_12_part_2
+from src.solution_day_13 import day_13_part_1, day_13_part_2
 
 if __name__ == '__main__':
     day_01_part_1("input/day_01_input.txt")  # 2430334
@@ -36,3 +37,5 @@ if __name__ == '__main__':
     day_11_part_2("input/day_11_input.txt", 75)  # 221280540398419
     day_12_part_1("input/day_12_input.txt")  # 1522850
     day_12_part_2("input/day_12_input.txt")  # 953738
+    day_13_part_1("input/day_13_input.txt")  # 29388
+    day_13_part_2("input/day_13_input.txt")  # 99548032866004
