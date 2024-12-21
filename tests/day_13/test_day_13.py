@@ -14,7 +14,7 @@ class MyTestCases(unittest.TestCase):
         self.assertEqual(480, day_13_part_1(self.CURRENT_DIR + '/input2.txt'))
 
     def test_day_13_part2(self):
-        self.assertEqual(480, day_13_part_2(self.CURRENT_DIR + '/input2.txt'))
+        self.assertEqual(875318608908, day_13_part_2(self.CURRENT_DIR + '/input2.txt'))
 
 
 if __name__ == '__main__':
